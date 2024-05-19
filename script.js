@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funzione per controllare la password
     window.checkPassword = function() {
         const password = document.getElementById('password').value;
-        if (password === "MiniJCW") { // Imposta la tua password qui
+        if (password === "Mini") { // Imposta la tua password qui
             document.getElementById('button-container').style.opacity = '1';
             document.getElementById('button-container').style.pointerEvents = 'auto';
             document.getElementById('password-popup').style.display = 'none';
