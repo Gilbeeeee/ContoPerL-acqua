@@ -12,6 +12,50 @@ table {
     border-collapse: collapse;
 }
 
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: lightgray;
+}
+
+.marquee {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+}
+
+.marquee h3 {
+    margin: 15px;
+}
+
+.marquee p {
+    margin: 0px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.text-box-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+.text-box {
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
@@ -74,3 +118,25 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
+button:disabled {
+    opacity: 0.5; /* Questo rende i bottoni disabilitati visivamente diversi */
+    cursor: not-allowed;
+}
+
+button {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.text-box {
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.text-box:disabled {
+    background-color: #e9ecef;
+}
+
