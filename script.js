@@ -1,3 +1,6 @@
+// Import the necessary functions from the Firebase SDK
+import { getDatabase, ref, set, get, child } from "firebase/database";
+
 // Funzione per verificare la password
 function checkPassword() {
     const correctPassword = "Mini"; // Sostituire con la password corretta
@@ -51,8 +54,9 @@ function updateName(inputId) {
     saveData(); // Salva i dati ogni volta che vengono modificati
 }
 
-// Funzione per salvare i dati nel local storage
+// Funzione per salvare i dati nel database Firebase
 function saveData() {
+    const db = getDatabase();
     const data = {
         gilberto: {
             water: document.getElementById('gilberto-water').textContent,
@@ -75,29 +79,36 @@ function saveData() {
             name3: document.getElementById('name3').placeholder
         }
     };
-    localStorage.setItem('data', JSON.stringify(data));
+    set(ref(db, 'data'), data);
 }
 
-// Funzione per caricare i dati dal local storage
+// Funzione per caricare i dati dal database Firebase
 function loadData() {
-    const data = JSON.parse(localStorage.getItem('data'));
-    if (data) {
-        document.getElementById('gilberto-water').textContent = data.gilberto.water;
-        document.getElementById('gilberto-cleaned').textContent = data.gilberto.cleaned;
-        document.getElementById('gilberto-brought').textContent = data.gilberto.brought;
-        
-        document.getElementById('adriano-water').textContent = data.adriano.water;
-        document.getElementById('adriano-cleaned').textContent = data.adriano.cleaned;
-        document.getElementById('adriano-brought').textContent = data.adriano.brought;
-        
-        document.getElementById('gregorio-water').textContent = data.gregorio.water;
-        document.getElementById('gregorio-cleaned').textContent = data.gregorio.cleaned;
-        document.getElementById('gregorio-brought').textContent = data.gregorio.brought;
-        
-        document.getElementById('name1').placeholder = data.names.name1;
-        document.getElementById('name2').placeholder = data.names.name2;
-        document.getElementById('name3').placeholder = data.names.name3;
-    }
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `data`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            document.getElementById('gilberto-water').textContent = data.gilberto.water;
+            document.getElementById('gilberto-cleaned').textContent = data.gilberto.cleaned;
+            document.getElementById('gilberto-brought').textContent = data.gilberto.brought;
+            
+            document.getElementById('adriano-water').textContent = data.adriano.water;
+            document.getElementById('adriano-cleaned').textContent = data.adriano.cleaned;
+            document.getElementById('adriano-brought').textContent = data.adriano.brought;
+            
+            document.getElementById('gregorio-water').textContent = data.gregorio.water;
+            document.getElementById('gregorio-cleaned').textContent = data.gregorio.cleaned;
+            document.getElementById('gregorio-brought').textContent = data.gregorio.brought;
+            
+            document.getElementById('name1').placeholder = data.names.name1;
+            document.getElementById('name2').placeholder = data.names.name2;
+            document.getElementById('name3').placeholder = data.names.name3;
+        } else {
+            console.log("No data available");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
 }
 
 // Carica i dati quando la pagina viene caricata
