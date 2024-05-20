@@ -5,18 +5,15 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    
     <h1>A chi tocca prendere l'acqua oggi?</h1>
     <p>(Solo se sai la password corretta puoi modificare i dati)</p>
-    
+
     <div class="marquee-container">
         <div class="marquee">
             <h3>Turni di oggi...</h3>
             <p id="turns-text">Chi la deve portare su: nome1 &nbsp;&nbsp; | &nbsp;&nbsp;  Chi la deve pulire: nome2 &nbsp;&nbsp; |&nbsp;&nbsp; Chi la deve portare giu': nome3</p>
         </div>
     </div>
-
-
 
     <h2>REGISTRO:</h2>
     <table id="activityTable">
@@ -47,7 +44,7 @@
     </table>
 
     <h2>BOTTONI:</h2>
-    <div class="button-container" id="button-container">
+    <div class="button-container" id="button-container" style="opacity: 0.5; pointer-events: none;">
         <div class="button-group">
             <button onclick="increment('gilberto', 'water')" disabled>Gilberto: Portata su +</button>
             <button onclick="decrement('gilberto', 'water')" disabled>Gilberto: Portata su -</button>
