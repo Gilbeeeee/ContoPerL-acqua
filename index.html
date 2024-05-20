@@ -3,41 +3,20 @@
 <head>
     <title>Turno per l'acqua</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-     <!-- Add SDKs for Firebase products that you want to use -->
-     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
-     <script>
-         // Import the functions you need from the SDKs you need
-         import { initializeApp } from "firebase/app";
-         import { getDatabase, ref, set, get, child } from "firebase/database";
-
-         // Your web app's Firebase configuration
-         const firebaseConfig = {
-             apiKey: "AIzaSyA4JAkZlXs7WfjPzth7aMEyxFZaCJl8vEA",
-             authDomain: "acqualatini.firebaseapp.com",
-             projectId: "acqualatini",
-             storageBucket: "acqualatini.appspot.com",
-             messagingSenderId: "608724252934",
-             appId: "1:608724252934:web:f3605a412fc940e7268687",
-             databaseURL: "https://acqualatini-default-rtdb.firebaseio.com/"
-         };
-
-         // Initialize Firebase
-         const app = initializeApp(firebaseConfig);
-         const database = getDatabase(app);
-    </script>
 </head>
 <body>
+    
     <h1>A chi tocca prendere l'acqua oggi?</h1>
     <p>(Solo se sai la password corretta puoi modificare i dati)</p>
     
     <div class="marquee-container">
         <div class="marquee">
             <h3>Turni di oggi...</h3>
-            <p id="turns-text">Chi la deve portare su: nome1 &nbsp;&nbsp; | &nbsp;&nbsp;  Chi la deve pulire: nome2 &nbsp;&nbsp; |&nbsp;&nbsp; Chi la deve portare giù: nome3</p>
+            <p id="turns-text">Chi la deve portare su: nome1 &nbsp;&nbsp; | &nbsp;&nbsp;  Chi la deve pulire: nome2 &nbsp;&nbsp; |&nbsp;&nbsp; Chi la deve portare giu': nome3</p>
         </div>
     </div>
+
+
 
     <h2>REGISTRO:</h2>
     <table id="activityTable">
@@ -45,7 +24,7 @@
             <th>Nome</th>
             <th>Portata su</th>
             <th>Pulita</th>
-            <th>Portata giù</th>
+            <th>Portata giu'</th>
         </tr>
         <tr>
             <td>Gilberto</td>
@@ -74,24 +53,24 @@
             <button onclick="decrement('gilberto', 'water')" disabled>Gilberto: Portata su -</button>
             <button onclick="increment('gilberto', 'cleaned')" disabled>Gilberto: Pulita +</button>
             <button onclick="decrement('gilberto', 'cleaned')" disabled>Gilberto: Pulita -</button>
-            <button onclick="increment('gilberto', 'brought')" disabled>Gilberto: Portata giù +</button>
-            <button onclick="decrement('gilberto', 'brought')" disabled>Gilberto: Portata giù -</button>
+            <button onclick="increment('gilberto', 'brought')" disabled>Gilberto: Portata giu' +</button>
+            <button onclick="decrement('gilberto', 'brought')" disabled>Gilberto: Portata giu' -</button>
         </div>
         <div class="button-group">
             <button onclick="increment('adriano', 'water')" disabled>Adriano: Portata su +</button>
             <button onclick="decrement('adriano', 'water')" disabled>Adriano: Portata su -</button>
             <button onclick="increment('adriano', 'cleaned')" disabled>Adriano: Pulita +</button>
             <button onclick="decrement('adriano', 'cleaned')" disabled>Adriano: Pulita -</button>
-            <button onclick="increment('adriano', 'brought')" disabled>Adriano: Portata giù +</button>
-            <button onclick="decrement('adriano', 'brought')" disabled>Adriano: Portata giù -</button>
+            <button onclick="increment('adriano', 'brought')" disabled>Adriano: Portata giu' +</button>
+            <button onclick="decrement('adriano', 'brought')" disabled>Adriano: Portata giu' -</button>
         </div>
         <div class="button-group">
             <button onclick="increment('gregorio', 'water')" disabled>Gregorio: Portata su +</button>
             <button onclick="decrement('gregorio', 'water')" disabled>Gregorio: Portata su -</button>
             <button onclick="increment('gregorio', 'cleaned')" disabled>Gregorio: Pulita +</button>
             <button onclick="decrement('gregorio', 'cleaned')" disabled>Gregorio: Pulita -</button>
-            <button onclick="increment('gregorio', 'brought')" disabled>Gregorio: Portata giù +</button>
-            <button onclick="decrement('gregorio', 'brought')" disabled>Gregorio: Portata giù -</button>
+            <button onclick="increment('gregorio', 'brought')" disabled>Gregorio: Portata giu' +</button>
+            <button onclick="decrement('gregorio', 'brought')" disabled>Gregorio: Portata giu' -</button>
         </div>
     </div>
 
