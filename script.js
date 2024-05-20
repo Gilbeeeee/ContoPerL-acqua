@@ -8,7 +8,6 @@ function checkPassword() {
         document.getElementById("password-popup").style.display = "none";
         document.getElementById('button-container').style.opacity = '1';
         document.getElementById('button-container').style.pointerEvents = 'auto';
-        document.getElementById('password-popup').style.display = 'none';
         const buttons = document.querySelectorAll('.button-container button');
         buttons.forEach(button => button.disabled = false);
     } else {
@@ -95,4 +94,11 @@ function loadData() {
         document.getElementById('gregorio-cleaned').textContent = data.gregorio.cleaned;
         document.getElementById('gregorio-brought').textContent = data.gregorio.brought;
         
-        document.getElementByI
+        document.getElementById('name1').placeholder = data.names.name1;
+        document.getElementById('name2').placeholder = data.names.name2;
+        document.getElementById('name3').placeholder = data.names.name3;
+    }
+}
+
+// Carica i dati quando la pagina viene caricata
+window.onload = loadData;
