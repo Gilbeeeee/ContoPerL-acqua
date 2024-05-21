@@ -1,3 +1,6 @@
+import supabase from './supabaseClient.js';
+
+
 // Funzione per verificare la password
 function checkPassword() {
     const correctPassword = "Mini"; // Sostituire con la password corretta
